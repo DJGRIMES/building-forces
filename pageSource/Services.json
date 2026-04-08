@@ -1,0 +1,92 @@
+{
+    "page": "Services",
+    "intro": {
+        "title": "Our Comprehensive Services",
+        "description": "We offer a full range of handyman services to meet your needs. From carpentry and painting to renovations and carpet cleaning, our team of experts is here to help."
+    },
+    "services": [
+        {
+            "service_name": "Building and Carpentry",
+            "description": "Our full-service carpentry and building services include custom cabinetry, furniture assembly, and structural repairs. Whether you need a small repair or a major renovation, our skilled carpenters are here to help.",
+            "key_points": [
+                "Custom Cabinetry",
+                "Furniture Assembly",
+                "Structural Repairs"
+            ],
+            "benefits": [
+                "High-quality craftsmanship",
+                "Attention to detail",
+                "Timely and efficient service"
+            ]
+        },
+        {
+            "service_name": "Painting (exterior and interior)",
+            "description": "Our comprehensive painting services cover both the interior and exterior of your property. From walls and ceilings to doors and trim, we ensure a flawless finish every time.",
+            "key_points": [
+                "Interior Painting",
+                "Exterior Painting",
+                "Accent Walls"
+            ],
+            "benefits": [
+                "Professional finish",
+                "Wide range of colors and finishes",
+                "Minimal disruption to your daily routine"
+            ]
+        },
+        {
+            "service_name": "Renovations and Restoration",
+            "description": "Our complete renovation and restoration services are designed to bring your property back to its original condition or better. From kitchen and bathroom remodels to historical restorations, we handle it all.",
+            "key_points": [
+                "Kitchen Remodels",
+                "Bathroom Remodels",
+                "Historical Restorations"
+            ],
+            "benefits": [
+                "Increased property value",
+                "Modern and functional spaces",
+                "Preservation of historical features"
+            ]
+        },
+        {
+            "service_name": "Drywall/plaster install and repair",
+            "description": "Our expert drywall and plaster installation and repair services ensure a smooth and seamless finish. Whether you need a small patch or a full installation, we've got you covered.",
+            "key_points": [
+                "Drywall Installation",
+                "Plaster Repair",
+                "Finishing"
+            ],
+            "benefits": [
+                "Smooth and seamless finish",
+                "Quick and efficient service",
+                "Minimal disruption to your daily routine"
+            ]
+        },
+        {
+            "service_name": "Carpet cleaning",
+            "description": "Our professional carpet cleaning services keep your carpets looking fresh and clean. Using state-of-the-art equipment and eco-friendly solutions, we remove dirt, stains, and odors effectively.",
+            "key_points": [
+                "Deep Cleaning",
+                "Stain Removal",
+                "Odor Elimination"
+            ],
+            "benefits": [
+                "Prolongs the life of your carpets",
+                "Improves indoor air quality",
+                "Safe for children and pets"
+            ]
+        }
+    ],
+    "seo": {
+        "meta_title": "Handyman Services in Lansing | Building Forces",
+        "meta_description": "Comprehensive handyman services including carpentry, painting, renovations, drywall repair, and carpet cleaning. Serving Lansing and surrounding areas.",
+        "keywords": [
+            "handyman services",
+            "carpentry",
+            "painting",
+            "renovations",
+            "drywall repair",
+            "carpet cleaning",
+            "Lansing handyman"
+        ]
+    }
+}

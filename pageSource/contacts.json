@@ -1,0 +1,14 @@
+{
+  "company_name": "Building Forces",
+  "address": "123 Elm St, Lansing, MI 48933",
+  "phone": "(517) 123-4567",
+  "email": "info@buildingforces.com",
+  "business_hours": "Mon-Fri: 9am-5pm",
+  "social_media": [
+    {
+      "platform": "Facebook",
+      "link": "https://facebook.com/buildingforces",
+      "icon": "facebook-icon.png"
+    }
+  ]
+}

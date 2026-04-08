@@ -1,0 +1,72 @@
+{
+    "page": "Home",
+    "sections": [
+        {
+            "section_type": "hero",
+            "title": "Your Trusted Handyman Services",
+            "subtitle": "Reliable, High-Quality Repairs and Improvements for Your Home",
+            "background_image": "hero-image.jpg",
+            "cta_button_text": "Get a Free Estimate",
+            "cta_button_link": "/contact"
+        },
+        {
+            "section_type": "services_overview",
+            "title": "Our Services for Homeowners",
+            "description": "We provide a wide range of handyman services to keep your home in top condition. From carpentry and painting to renovations and repairs, we ensure your home remains a comfortable and safe place for you and your family.",
+            "services": [
+                {
+                    "service_name": "Carpentry",
+                    "description": "Our carpentry services include custom cabinetry, furniture assembly, and structural repairs. Whether you need a small fix or a major renovation, our skilled carpenters deliver high-quality craftsmanship and attention to detail.",
+                    "image": "carpentry.jpg"
+                },
+                {
+                    "service_name": "Painting",
+                    "description": "We offer comprehensive interior and exterior painting services. Our team ensures a flawless finish, using high-quality paints and materials to refresh and protect your home.",
+                    "image": "painting.jpg"
+                },
+                {
+                    "service_name": "Renovations and Restorations",
+                    "description": "From kitchen and bathroom remodels to historical restorations, our renovation services are designed to enhance the beauty and functionality of your home.",
+                    "image": "renovations.jpg"
+                },
+                {
+                    "service_name": "Drywall and Plaster Repair",
+                    "description": "Our expert drywall and plaster repair services ensure a smooth and seamless finish. We handle everything from small patches to full installations.",
+                    "image": "drywall-repair.jpg"
+                },
+                {
+                    "service_name": "Carpet Cleaning",
+                    "description": "Our professional carpet cleaning services use state-of-the-art equipment and eco-friendly solutions to remove dirt, stains, and odors, prolonging the life of your carpets and improving indoor air quality.",
+                    "image": "carpet-cleaning.jpg"
+                }
+            ]
+        },
+        {
+            "section_type": "credentials",
+            "title": "Why Choose Us",
+            "content": "With years of experience serving homeowners in Lansing, we pride ourselves on delivering exceptional service and results. Our team is licensed, insured, and committed to providing reliable and efficient solutions tailored to your needs.",
+            "details": "We understand the importance of maintaining your home, which is why we focus on quality, attention to detail, and timely service. Our goal is to exceed your expectations and ensure your complete satisfaction with every project we undertake."
+        },
+        {
+            "section_type": "cta",
+            "title": "Ready to Enhance Your Home?",
+            "subtitle": "Contact us today for a free estimate and let us help you with your home improvement needs.",
+            "cta_button_text": "Contact Us",
+            "cta_button_link": "/contact"
+        }
+    ],
+    "seo": {
+        "meta_title": "Handyman Services in Lansing | Building Forces",
+        "meta_description": "Reliable handyman services for homeowners in Lansing. From carpentry and painting to renovations and repairs, we've got you covered. Get a free estimate today!",
+        "keywords": [
+            "handyman services",
+            "home repairs",
+            "carpentry",
+            "painting",
+            "renovations",
+            "drywall repair",
+            "carpet cleaning",
+            "Lansing handyman"
+        ]
+    }
+}

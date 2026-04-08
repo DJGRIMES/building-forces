@@ -1,0 +1,57 @@
+{
+    "page": "Home Owner",
+    "intro": {
+        "title": "Comprehensive Homeowner Services",
+        "description": "We understand the challenges homeowners face and offer tailored solutions to keep your home in top condition. Our services are designed to address your specific needs, ensuring your home remains a comfortable and safe place for you and your family."
+    },
+    "services_for_homeowners": [
+        {
+            "service_name": "Home Maintenance",
+            "description": "Regular upkeep and repair services to preserve your home's value and functionality. Our home maintenance services include routine inspections, prompt repairs, and preventative maintenance to address issues before they become major problems.",
+            "details": "We focus on maintaining the integrity and appearance of your home, from fixing minor issues to performing more extensive repairs. Our goal is to help you avoid costly repairs down the line and keep your home in excellent condition year-round."
+        },
+        {
+            "service_name": "Carpentry",
+            "description": "Custom carpentry services including cabinetry, furniture assembly, and structural repairs. Whether you need a small fix or a major renovation, our skilled carpenters deliver high-quality craftsmanship and attention to detail.",
+            "details": "Our carpentry services are tailored to meet your specific needs, ensuring that every project is completed to your satisfaction. We use high-quality materials and proven techniques to deliver lasting results."
+        },
+        {
+            "service_name": "Painting",
+            "description": "Comprehensive interior and exterior painting services to refresh and protect your home. Our team ensures a flawless finish, using high-quality paints and materials to enhance the beauty and durability of your home.",
+            "details": "We handle everything from walls and ceilings to doors and trim, providing a professional finish that will make your home look its best. Our painting services are designed to minimize disruption to your daily routine."
+        },
+        {
+            "service_name": "Renovations and Restorations",
+            "description": "From kitchen and bathroom remodels to historical restorations, our renovation services are designed to enhance the beauty and functionality of your home. We work closely with you to bring your vision to life.",
+            "details": "Our renovation services include everything from planning and design to execution and finishing touches. We focus on delivering high-quality results that increase the value and enjoyment of your home."
+        },
+        {
+            "service_name": "Drywall and Plaster Repair",
+            "description": "Expert drywall and plaster repair services to ensure a smooth and seamless finish. We handle everything from small patches to full installations, ensuring your walls look flawless.",
+            "details": "Our team is experienced in all aspects of drywall and plaster repair, from minor fixes to major renovations. We use the best materials and techniques to achieve a perfect finish."
+        },
+        {
+            "service_name": "Carpet Cleaning",
+            "description": "Professional carpet cleaning services to keep your carpets looking fresh and clean. Using state-of-the-art equipment and eco-friendly solutions, we remove dirt, stains, and odors effectively.",
+            "details": "Our carpet cleaning services not only improve the appearance of your carpets but also contribute to a healthier indoor environment by removing allergens and bacteria. We use safe and effective cleaning methods that are suitable for homes with children and pets."
+        }
+    ],
+    "cta": {
+        "title": "Ready to Maintain and Enhance Your Home?",
+        "cta_button_text": "Contact Us",
+        "cta_button_link": "/contact"
+    },
+    "seo": {
+        "meta_title": "Home Maintenance and Repair Services for Lansing Homeowners | Building Forces",
+        "meta_description": "Reliable home maintenance, carpentry, painting, renovations, and carpet cleaning services tailored for Lansing homeowners. Contact us today for a free estimate!",
+        "keywords": [
+            "home maintenance",
+            "carpentry services",
+            "painting services",
+            "home renovations",
+            "drywall repair",
+            "carpet cleaning",
+            "Lansing home services"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "page": "Contact",
+  "contact_info": {
+    "title": "Contact Us",
+    "address": "123 Elm St, Lansing, MI 48933",
+    "phone": "(517) 123-4567",
+    "email": "info@brand.com",
+    "business_hours": "Mon-Fri: 9am-5pm"
+  },
+  "quote_form": {
+    "title": "Request a Quote",
+    "fields": ["name", "email", "phone", "service_interest", "message"]
+  },
+  "social_media": [
+    {
+      "platform": "Facebook",
+      "link": "https://facebook.com/brand",
+      "icon": "facebook-icon.png"
+    }
+  ],
+  "map": {
+    "embed_link": "https://maps.google.com/?q=123+Elm+St,+Lansing,+MI"
+  },
+  "seo": {
+    "meta_title": "Contact Building Forces for Property Management Services in Lansing",
+    "meta_description": "Get in touch with our team for expert property management and real estate services in Lansing.",
+    "keywords": ["contact property management", "Lansing real estate services contact"]
+  }
+}

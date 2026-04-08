@@ -1,0 +1,49 @@
+{
+    "page": "Investor / Landlord",
+    "intro": {
+        "title": "Maximize Your Property's Potential",
+        "description": "Our handyman services are tailored to meet the needs of property managers and investor owners. We help you maintain your properties, enhance tenant satisfaction, and maximize your ROI."
+    },
+    "services_for_investors": [
+        {
+            "service_name": "Property Maintenance",
+            "description": "Regular maintenance and quick repairs to keep your properties in top condition and your tenants satisfied. Our services ensure that your properties remain attractive to current and prospective tenants, reducing vacancy rates and enhancing overall tenant satisfaction.",
+            "key_points": "Our property maintenance services include regular inspections, prompt repairs, and preventative maintenance to keep your properties in excellent condition. We focus on addressing issues before they become major problems, ensuring that your tenants are happy and your properties retain their value.",
+            "benefits": "By maintaining your properties proactively, we help you avoid costly repairs and minimize tenant turnover. Regular maintenance also contributes to higher tenant retention and increased rental income, making your investment more profitable in the long run."
+        },
+        {
+            "service_name": "Tenant Turnover Services",
+            "description": "Comprehensive services to prepare your properties for new tenants, ensuring quick turnovers and minimal downtime. Our team handles everything from painting and carpet cleaning to general repairs, making sure your properties are move-in ready as soon as possible.",
+            "key_points": "We understand the importance of minimizing vacancy periods. Our tenant turnover services are designed to get your properties ready for new tenants quickly and efficiently. This includes thorough cleaning, necessary repairs, and any upgrades that will make your properties more appealing to potential tenants.",
+            "benefits": "Our efficient turnover process ensures that your properties spend less time vacant, maximizing your rental income. Additionally, well-maintained properties attract higher-quality tenants, leading to longer lease terms and fewer turnover-related issues."
+        },
+        {
+            "service_name": "Renovations and Upgrades",
+            "description": "Upgrade your properties to attract higher-quality tenants and increase property value. Whether you're looking to modernize kitchens and bathrooms or restore historical features, our renovation services are tailored to meet your specific needs.",
+            "key_points": "Our renovation and upgrade services include kitchen and bathroom remodels, flooring upgrades, and historical restorations. We work closely with you to identify the upgrades that will provide the best return on investment and enhance the overall appeal of your properties.",
+            "benefits": "Investing in property upgrades can significantly increase the value of your properties and allow you to command higher rental rates. Improved amenities and modern finishes also contribute to higher tenant satisfaction and longer lease terms."
+        },
+        {
+            "service_name": "Emergency Repairs",
+            "description": "24/7 emergency repair services to address urgent issues and keep your tenants happy. Our team is always on call to handle any emergencies, from plumbing and electrical issues to structural repairs.",
+            "key_points": "We provide rapid response to emergency repair requests, ensuring that issues are addressed promptly and effectively. Our goal is to minimize tenant disruption and prevent minor problems from escalating into major repairs.",
+            "benefits": "By offering reliable emergency repair services, we help you maintain positive relationships with your tenants and reduce the risk of liability issues. Quick and efficient repairs also contribute to higher tenant retention and satisfaction."
+        }
+    ],
+    "cta": {
+        "title": "Ready to Optimize Your Investment?",
+        "cta_button_text": "Contact Us",
+        "cta_button_link": "/contact"
+    },
+    "seo": {
+        "meta_title": "Handyman Services for Lansing Investors | Building Forces",
+        "meta_description": "Comprehensive handyman services for property managers and investor owners. Maximize your ROI with our maintenance, renovation, and emergency repair services.",
+        "keywords": [
+            "property maintenance",
+            "tenant turnover services",
+            "renovations and upgrades",
+            "emergency repairs",
+            "Lansing property management"
+        ]
+    }
+}
