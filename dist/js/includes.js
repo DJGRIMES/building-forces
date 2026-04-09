@@ -78,80 +78,259 @@ function loadIncludes() {
 
 // Load contact information after footer is loaded
 function loadContactInfo() {
-    fetch('../pageSource/contacts.json')
+    fetch('pageSource/contact_info.json')
         .then(response => response.json())
         .then(data => {
-            // Display company name
-            const companyElements = document.querySelectorAll('.company-name');
-            companyElements.forEach(element => {
-                element.textContent = data.company_name;
-            });
-
-            // Display address
-            const addressElements = document.querySelectorAll('.company-address');
-            addressElements.forEach(element => {
-                element.textContent = data.address;
-            });
-
-            // Display phone number (obfuscated)
-            const phoneElements = document.querySelectorAll('.company-phone');
-            phoneElements.forEach(element => {
-                const phoneSpan = document.createElement('span');
-                phoneSpan.textContent = data.phone;
-                // Add click-to-call functionality
-                phoneSpan.style.cursor = 'pointer';
-                phoneSpan.onclick = function() {
-                    window.location.href = 'tel:' + data.phone.replace(/[^\d]/g, '');
-                };
-                element.appendChild(phoneSpan);
-            });
-
-            // Display email (obfuscated)
-            const emailElements = document.querySelectorAll('.company-email');
-            emailElements.forEach(element => {
-                const obscuredEmail = obscureEmail(data.email);
-                const emailLink = document.createElement('a');
-                emailLink.href = 'mailto:' + data.email;
-                emailLink.textContent = data.email;
-                // Use JavaScript to build the email address dynamically
-                emailLink.onclick = function() {
-                    // This makes it harder for crawlers to extract the email
-                    window.location.href = 'mailto:' + obscuredEmail.split('').reverse().join('');
-                    return false;
-                };
-                element.appendChild(emailLink);
-            });
-
-            // Display business hours
-            const hoursElements = document.querySelectorAll('.business-hours');
-            hoursElements.forEach(element => {
-                element.textContent = data.business_hours;
-            });
-
-            // Display social media links
-            const socialMediaContainer = document.querySelector('.social-media-links');
-            if (socialMediaContainer && data.social_media) {
-                data.social_media.forEach(social => {
-                    const link = document.createElement('a');
-                    link.href = social.link;
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
-                    link.title = social.platform;
-                    
-                    const icon = document.createElement('img');
-                    icon.src = social.icon;
-                    icon.alt = social.platform + ' icon';
-                    icon.width = 24;
-                    icon.height = 24;
-                    
-                    link.appendChild(icon);
-                    socialMediaContainer.appendChild(link);
+            // Set contact section emoji if it exists
+            if (data.contact_section_emoji) {
+                const sectionIcons = document.querySelectorAll('.contact-section-icon');
+                sectionIcons.forEach(icon => {
+                    icon.textContent = data.contact_section_emoji;
                 });
             }
+
+            // Fully dynamic contact info display - process all fields
+            const contactList = document.querySelector('.contact-info-list');
+            if (contactList) {
+                // Clear any existing content
+                contactList.innerHTML = '';
+
+                // Define special field handlers with their display order
+                const fieldDisplayOrder = [
+                    'address',
+                    'phone',
+                    'email',
+                    'business_hours',
+                    'company_name'
+                ];
+
+                // Process fields in defined order
+                fieldDisplayOrder.forEach(fieldName => {
+                    if (data[fieldName]) {
+                        createContactItem(contactList, fieldName, data[fieldName]);
+                    }
+                });
+
+                // Process any additional fields not in the display order
+                for (const [key, value] of Object.entries(data)) {
+                    if (!fieldDisplayOrder.includes(key) && 
+                        key !== 'contact_section_emoji' && 
+                        typeof value === 'string' && 
+                        !key.startsWith('_')) {
+                        createContactItem(contactList, key, value);
+                    }
+                }
+            }
+
+            // Display social media and other links dynamically
+            displayDynamicLinks(data);
         })
         .catch(error => {
             console.error('Error loading contact information:', error);
         });
+    
+}
+
+// Create a contact information list item
+function createContactItem(container, fieldName, value) {
+    const listItem = document.createElement('li');
+    
+    // Format field name for display
+    const displayName = formatFieldName(fieldName);
+    
+    // Handle special field types
+    if (isPhoneNumber(value)) {
+        // Phone number with click-to-call
+        const phoneSpan = document.createElement('span');
+        phoneSpan.innerHTML = value;
+        phoneSpan.style.cursor = 'pointer';
+        phoneSpan.onclick = function() {
+            const phoneNumber = extractPhoneNumber(value);
+            window.location.href = 'tel:' + phoneNumber;
+        };
+        listItem.appendChild(phoneSpan);
+    } else if (isEmailAddress(value)) {
+        // Email address with obfuscation
+        const emailText = extractEmailAddress(value);
+        const obscuredEmail = obscureEmail(emailText);
+        const emailLink = document.createElement('a');
+        emailLink.href = 'mailto:' + emailText;
+        emailLink.innerHTML = value;
+        emailLink.onclick = function() {
+            window.location.href = 'mailto:' + obscuredEmail.split('').reverse().join('');
+            return false;
+        };
+        listItem.appendChild(emailLink);
+    } else if (isWebUrl(value)) {
+        // Web URL
+        const link = document.createElement('a');
+        link.href = extractUrl(value);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = value;
+        listItem.appendChild(link);
+    } else {
+        // Standard text display
+        listItem.innerHTML = value;
+    }
+    
+    container.appendChild(listItem);
+}
+
+// Display dynamic links (social media, websites, etc.)
+function displayDynamicLinks(data) {
+    const socialMediaContainer = document.querySelector('.social-media-links');
+    if (!socialMediaContainer) return;
+    
+    socialMediaContainer.innerHTML = '';
+    
+    // Look for any fields that contain URLs
+    for (const [key, value] of Object.entries(data)) {
+        if (typeof value === 'string' && isWebUrl(value)) {
+            // Skip fields we've already handled as contact items
+            const contactFields = ['address', 'phone', 'email', 'business_hours', 'company_name'];
+            if (!contactFields.includes(key)) {
+                const displayName = formatFieldName(key);
+                createSocialLink(socialMediaContainer, extractUrl(value), displayName);
+            }
+        }
+    }
+    
+    // Also populate contact page if we're on the contact page
+    populateContactPage(data);
+}
+
+// Helper function to format field names for display
+function formatFieldName(fieldName) {
+    return fieldName
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase());
+}
+
+// Helper function to detect phone numbers
+function isPhoneNumber(value) {
+    return /[\d\-\(\)\+]/.test(value);
+}
+
+// Helper function to extract clean phone number
+function extractPhoneNumber(value) {
+    return value.replace(/[^\d]/g, '');
+}
+
+// Helper function to detect email addresses
+function isEmailAddress(value) {
+    return /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(value);
+}
+
+// Helper function to extract clean email address
+function extractEmailAddress(value) {
+    const match = value.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+    return match ? match[0] : value;
+}
+
+// Helper function to detect web URLs
+function isWebUrl(value) {
+    return /https?:\/\/[^\s]+/.test(value);
+}
+
+// Helper function to extract clean URL
+function extractUrl(value) {
+    const match = value.match(/https?:\/\/[^\s]+/);
+    return match ? match[0] : value;
+}
+
+
+
+// Populate the contact page with dynamic contact information
+function populateContactPage(data) {
+    const contactDetailsContainer = document.querySelector('.contact-details-dynamic');
+    if (!contactDetailsContainer) return;
+    
+    contactDetailsContainer.innerHTML = '';
+    
+    // Define display order for contact page
+    const contactPageDisplayOrder = [
+        { key: 'address', label: 'Address' },
+        { key: 'phone', label: 'Phone' },
+        { key: 'email', label: 'Email' },
+        { key: 'business_hours', label: 'Business Hours' },
+        { key: 'website', label: 'Website' }
+    ];
+    
+    // Create contact items in display order
+    contactPageDisplayOrder.forEach(item => {
+        if (data[item.key]) {
+            createContactPageItem(contactDetailsContainer, item.label, data[item.key]);
+        }
+    });
+    
+    // Add any additional fields not in the display order
+    for (const [key, value] of Object.entries(data)) {
+        if (typeof value === 'string' && 
+            !contactPageDisplayOrder.some(item => item.key === key) &&
+            key !== 'contact_section_emoji' &&
+            !key.startsWith('_')) {
+            createContactPageItem(contactDetailsContainer, formatFieldName(key), value);
+        }
+    }
+}
+
+// Create a contact page item with proper formatting
+function createContactPageItem(container, label, value) {
+    const paragraph = document.createElement('p');
+    
+    const strong = document.createElement('strong');
+    strong.textContent = label + ': ';
+    
+    paragraph.appendChild(strong);
+    
+    // Handle different value types
+    if (isPhoneNumber(value)) {
+        const phoneSpan = document.createElement('span');
+        phoneSpan.innerHTML = value;
+        phoneSpan.style.cursor = 'pointer';
+        phoneSpan.onclick = function() {
+            const phoneNumber = extractPhoneNumber(value);
+            window.location.href = 'tel:' + phoneNumber;
+        };
+        paragraph.appendChild(phoneSpan);
+    } else if (isEmailAddress(value)) {
+        const emailText = extractEmailAddress(value);
+        const obscuredEmail = obscureEmail(emailText);
+        const emailLink = document.createElement('a');
+        emailLink.href = 'mailto:' + emailText;
+        emailLink.innerHTML = value;
+        emailLink.onclick = function() {
+            window.location.href = 'mailto:' + obscuredEmail.split('').reverse().join('');
+            return false;
+        };
+        paragraph.appendChild(emailLink);
+    } else if (isWebUrl(value)) {
+        const link = document.createElement('a');
+        link.href = extractUrl(value);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = value;
+        paragraph.appendChild(link);
+    } else {
+        const textSpan = document.createElement('span');
+        textSpan.innerHTML = value;
+        paragraph.appendChild(textSpan);
+    }
+    
+    container.appendChild(paragraph);
+}
+
+// Unified function to create any type of link
+function createSocialLink(container, url, displayName) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.title = displayName;
+    link.textContent = displayName;
+    link.style.marginRight = '15px';
+    container.appendChild(link);
 }
 
 // Function to obscure email addresses
